@@ -1,4 +1,31 @@
+use std::io;
+
 fn main() {
+
+
+    let mut name = String::new();
+    println!("Enter hero's name:");
+    io::stdin()
+        .read_line(&mut name)
+        .expect("Failed to read line");
+    let name = name.trim().to_string();
+
+    let mut health_input = String::new();
+    println!("Enter hero's health:");
+    io::stdin()
+        .read_line(&mut health_input)
+        .expect("Failed to read line");
+    let health: i32 = health_input
+        .trim()
+        .parse()
+        .expect("Please enter a valid number");
+
+    let mut hero1 = Hero { id: 3, name, health};
+
+    hero1.printHero();
+
+    println!("______________________");
+
 
     let mut mutator: Hero = Hero {
         id: 1,
